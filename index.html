@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>OYUN DÜNYASI</title>
+    <meta name="theme-color" content="#05050a">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="sound-toggle" id="sound-toggle" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat">
+        🔊
+    </button>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.png" id="site-logo" alt="Gamer Controller Logo">
+            <h1>OYUN DÜNYASI</h1>
+            <p class="subtitle">20 Modern Oyun | Tek & Çift Kişilik Deneyim</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-filter="all">Tüm Oyunlar</button>
+            <button class="tab-btn" data-filter="single">Tek Kişilik</button>
+            <button class="tab-btn" data-filter="multi">2 Kişilik</button>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+            <!-- Oyunlar buraya JS ile yüklenecek -->
+        </div>
+    </div>
+
+    <!-- Oyun Katmanı (Overlay) -->
+    <div class="game-overlay" id="game-overlay">
+        <button class="close-overlay" id="close-overlay">✖</button>
+        <div class="game-container" id="game-container">
+            <!-- Aktif oyun içeriği buraya gelecek -->
+        </div>
+        <div class="game-ui">
+            <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+                <div>
+                    <h2 id="game-title">Oyun Adı</h2>
+                    <p class="game-info" id="game-info">Kontroller: WASD / Ok Tuşları</p>
+                </div>
+                <button class="fullscreen-toggle" id="fullscreen-toggle" title="Tam Ekran" aria-label="Tam Ekran">⛶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="sfx.js"></script>
+    <script src="touch.js"></script>
+    <script src="games.js"></script>
+    <script src="main.js"></script>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+      }
+    </script>
+</body>
+</html>
